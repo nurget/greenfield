@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Kaisei+Decol:wght@700&display=swap');
+
+.outline-title {
+    font-family: 'Kaisei Decol', serif;
+    font-weight: 700;
+    color: transparent;
+    -webkit-text-stroke: 1.5px white;
+    letter-spacing: -0.02em;
+}
+
+:root {
+    --container-outset-gutter: 8px;
+    --container-inset-gutter: 24px;
+    --container-outset-inset-gutter: var(--container-outset-gutter);
+    --grid-gutter: 16px;
+    --border-width: 1px;
+}
+
+@media (min-width: 640px) {
+    :root {
+        --container-outset-gutter: 40px;
+        --container-inset-gutter: 32px;
+        --grid-gutter: 20px;
+        --border-width: 1px;
+    }
+}
+
+@media (min-width: 1024px) {
+    :root {
+        --container-outset-gutter: 80px;
+        --container-inset-gutter: 40px;
+        --grid-gutter: 20px;
+        --border-width: 2px;
+    }
+}
+
+.container-outset-inset {
+    padding-left: var(--container-outset-gutter);
+    padding-right: var(--container-outset-gutter);
+}
