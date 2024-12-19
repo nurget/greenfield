@@ -18,8 +18,8 @@ export const MenuItem: React.FC<MenuItemProps> = ({ title, to }) => {
         <div className="flex-1">
             <Link
                 to={to}
-                className="group relative flex justify-start h-full w-full px-4 sm:px-6 md:px-[1.5rem] py-4 sm:py-6 md:py-[2rem]
-                   text-white text-xl sm:text-2xl md:text-3xl font-syne font-bold transition-all"
+                className="group relative flex justify-start h-full w-full px-3 sm:px-4 md:px-6 lg:px-[1.5rem] py-4 sm:py-5 md:py-6 lg:py-[2rem]
+                   text-white text-lg sm:text-xl md:text-2xl lg:text-3xl font-syne font-bold transition-all"
             >
                 {title}
                 <svg

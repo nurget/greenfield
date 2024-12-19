@@ -8,7 +8,7 @@ import Banner from "../components/common/Banner.tsx";
 const MainPage = () => {
     return (
         <>
-            <Banner />
+            {/*<Banner />*/}
 
             <BaseballScene/>
             <GridLayout>
@@ -22,8 +22,8 @@ const MainPage = () => {
 
                 <DynamicGhostText
                     text="DIAMONDDATA"
-                    className="font-syne flex justify-center items-center text-white text-4xl md:text-5xl font-extrabold tracking-wide"
-                    maxDistance={25}
+                    className="font-syne flex justify-center items-center text-white text-1xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-extrabold tracking-wide"
+                    maxDistance={20}
                     layers={[
                         {distance: 0.25, opacity: 0.4},
                         {distance: 0.5, opacity: 0.3},

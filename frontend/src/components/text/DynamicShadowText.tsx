@@ -25,6 +25,14 @@ export const DynamicGhostText: React.FC<DynamicGhostTextProps> = ({
     const [isHovering, setIsHovering] = useState(false);
     const textRef = useRef<HTMLDivElement>(null);
 
+    // 반응형에 따른 maxDistance 조정
+    const getResponsiveDistance = () => {
+        if (window.innerWidth < 640) return maxDistance * 0.6; // 모바일
+        if (window.innerWidth < 768) return maxDistance * 0.8; // 태블릿
+        if (window.innerWidth < 1024) return maxDistance * 0.9; // 작은 데스크탑
+        return maxDistance; // 큰 데스크탑
+    };
+
     const handleMouseMove = (e: React.MouseEvent) => {
         if (!textRef.current) return;
 
@@ -48,8 +56,9 @@ export const DynamicGhostText: React.FC<DynamicGhostTextProps> = ({
         >
             {/* Ghost layers */}
             {isHovering && layers.map((layer, index) => {
-                const xOffset = mousePosition.x * maxDistance * layer.distance;
-                const yOffset = mousePosition.y * maxDistance * layer.distance;
+                const responsiveDistance = getResponsiveDistance();
+                const xOffset = mousePosition.x * responsiveDistance * layer.distance;
+                const yOffset = mousePosition.y * responsiveDistance * layer.distance;
 
                 return (
                     <div
@@ -57,7 +66,7 @@ export const DynamicGhostText: React.FC<DynamicGhostTextProps> = ({
                         className={`absolute inset-0 transition-transform duration-150 ease-out pointer-events-none ${className}`}
                         style={{
                             transform: `translate(${xOffset}px, ${yOffset}px)`,
-                            opacity: layer.opacity,
+                            opacity: layer.opacity * (window.innerWidth < 640 ? 0.7 : 1), // 모바일에서는 투명도 조정
                         }}
                     >
                         {text}
